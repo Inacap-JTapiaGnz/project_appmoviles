@@ -8,6 +8,7 @@ namespace RegistroEmpleados.Modelos.Modelos
 {
     public class Empleado
     {
+        public string? Id { get; set; }
         public string? PrimerNombre { get; set; }
         public string? SegundoNombre { get; set; }
         public string? PrimerApellido { get; set; }
@@ -16,7 +17,11 @@ namespace RegistroEmpleados.Modelos.Modelos
 
         public int Sueldo { get; set; }
         public DateTime FechaInicio { get; set; }
+        public DateTime FechaFinal { get; set; }
         public Cargo Cargo { get; set; }
+        public bool? Estado { get; set; }
         public string NombreCompleto => $"{PrimerNombre} {PrimerApellido}";
+        public string EstadoTexto => Estado.HasValue ? (Estado.Value ? "Activo" : "Inactivo") : "Estado Desconocido";
+
     }
 }
